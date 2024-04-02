@@ -2,6 +2,7 @@ package com.akasharavinth.library;
 
 import com.akasharavinth.library.datalayer.Database;
 import com.akasharavinth.library.home.HomeView;
+import com.akasharavinth.library.manageuser.ManageUserView;
 
 public class LibraryManagement {
     public static LibraryManagement libraryManagement;
@@ -14,6 +15,8 @@ public class LibraryManagement {
 
     public void init(){
         Database.getInstance().getBooks();
+        Database.getInstance().getUsers();
+        Database.getInstance().addAdmin();
         HomeView homeView = new HomeView();
         homeView.init();
     }

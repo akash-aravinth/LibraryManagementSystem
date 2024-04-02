@@ -1,6 +1,9 @@
 package com.akasharavinth.library.datalayer;
 
+import com.akasharavinth.library.models.Admin;
 import com.akasharavinth.library.models.Book;
+import com.akasharavinth.library.models.Library;
+import com.akasharavinth.library.models.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,6 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
+
+    private Library library;
+
+    public Library getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
+
     ObjectMapper objectMapper = new ObjectMapper();
     private static Database database;
     public static Database getInstance(){
@@ -17,6 +31,17 @@ public class Database {
             database = new Database();
         }
         return database;
+    }
+
+    //////////////////////////////          Admin               /////////////////////////////
+    List<Admin> adminList = new ArrayList<>();
+
+    public void addAdmin(){
+        adminList.add(new Admin("akash","akash123"));
+        adminList.add(new Admin("aravinth","aravinth123"));
+    }
+    public List<Admin> getAdminList() {
+        return adminList;
     }
 
     //////////////////////////////             Book             /////////////////////////////////////////
@@ -84,7 +109,46 @@ public class Database {
 
     /////////////////////////////////           USER            ////////////////////////////////////////
 
+    File userFile = new File("userFile.json");
+    List<User> userList = new ArrayList<>();
 
+    public List<User> getUserList(){
+        return userList;
+    }
+    public void getUsers(){
+        try {
+            userList = objectMapper.readValue(userFile, new TypeReference<List<User>>() {});
+        }catch (IOException i){
+            i.printStackTrace();
+        }
+    }
 
+    public void addUser(User u){
+        userList.add(u);
+        manageFile(userFile,userList);
+        System.out.println("User Add Successfully");
+    }
+    public void removeUser(User u){
+        userList.remove(u);
+        manageFile(userFile,userList);
+        System.out.println("User Removed Successfully");
+    }
+    public void updateUser(User u) {
+        for (User user : userList){
+            if (user.getUserId() == u.getUserId()){
+                System.out.println(user.getUserName());
+                userList.remove(user);
+                userList.add(u);
+                break;
+            }
+        }
+        manageFile(userFile,userList);
+        System.out.println("User Updated Successfully");
+    }
 
+    public void showUser(){
+        for (User u : userList){
+            System.out.println(u.getUserName()+"   "+u.getUserEmailId()+"   "+u.getUserAddress());
+        }
+    }
 }
