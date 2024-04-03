@@ -1,6 +1,8 @@
 package com.akasharavinth.library.datalayer;
 
+import com.akasharavinth.library.models.Admin;
 import com.akasharavinth.library.models.Book;
+import com.akasharavinth.library.models.Library;
 import com.akasharavinth.library.models.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
+
+    private Library library;
+
+    public Library getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
+
     ObjectMapper objectMapper = new ObjectMapper();
     private static Database database;
     public static Database getInstance(){
@@ -18,6 +31,17 @@ public class Database {
             database = new Database();
         }
         return database;
+    }
+
+    //////////////////////////////          Admin               /////////////////////////////
+    List<Admin> adminList = new ArrayList<>();
+
+    public void addAdmin(){
+        adminList.add(new Admin("akash","akash123"));
+        adminList.add(new Admin("aravinth","aravinth123"));
+    }
+    public List<Admin> getAdminList() {
+        return adminList;
     }
 
     //////////////////////////////             Book             /////////////////////////////////////////

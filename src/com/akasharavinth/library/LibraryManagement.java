@@ -16,10 +16,9 @@ public class LibraryManagement {
     public void init(){
         Database.getInstance().getBooks();
         Database.getInstance().getUsers();
-        ManageUserView manageUserView = new ManageUserView();
-        manageUserView.startManageUser();
-//        HomeView homeView = new HomeView();
-//        homeView.init();
+        Database.getInstance().addAdmin();
+        HomeView homeView = new HomeView();
+        homeView.init();
     }
     public static void main(String[] args) {
         LibraryManagement.getInstance().init();
