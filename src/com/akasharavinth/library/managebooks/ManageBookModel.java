@@ -34,7 +34,6 @@ public class ManageBookModel {
         for (Book b : Database.getInstance().getBookList()){
             if (b.getBookId() == bookId){
                 book = b;
-                System.out.println("find");
             }
         }
         if (book == null){
