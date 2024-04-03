@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class AdminLoginView {
     Scanner scanner = new Scanner(System.in);
     private AdminLoginModel adminLoginModel;
-    AdminLoginView(){
+    public AdminLoginView(){
         adminLoginModel = new AdminLoginModel(this);
     }
     public void init(){

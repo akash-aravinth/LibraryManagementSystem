@@ -2,9 +2,9 @@ package com.akasharavinth.library.models;
 
 public class Library {
     private String libraryName;
-    private String id;
-    private String email;
-    private String address;
+    private String LibraryId;
+    private String libraryEmail;
+    private String libraryAddress;
 
     public String getLibraryName() {
         return libraryName;
@@ -14,27 +14,27 @@ public class Library {
         this.libraryName = libraryName;
     }
 
-    public String getId() {
-        return id;
+    public String getLibraryId() {
+        return LibraryId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setLibraryId(String libraryId) {
+        LibraryId = libraryId;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLibraryEmail() {
+        return libraryEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLibraryEmail(String libraryEmail) {
+        this.libraryEmail = libraryEmail;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLibraryAddress() {
+        return libraryAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLibraryAddress(String libraryAddress) {
+        this.libraryAddress = libraryAddress;
     }
 }

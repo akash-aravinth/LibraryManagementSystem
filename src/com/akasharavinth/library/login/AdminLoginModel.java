@@ -1,6 +1,7 @@
 package com.akasharavinth.library.login;
 
 import com.akasharavinth.library.datalayer.Database;
+import com.akasharavinth.library.librarysetup.LibrarySetupView;
 import com.akasharavinth.library.models.Admin;
 
 public class AdminLoginModel {
@@ -14,7 +15,8 @@ public class AdminLoginModel {
             if (a.getAdminId().equals(adminId)){
                 if (a.getAdminPassword().equals(adminPassword)){
                     adminLoginView.showAlert("Admin Login Successfully");
-
+                    LibrarySetupView librarySetupView = new LibrarySetupView();
+                    librarySetupView.init();
                 }else {
                     adminLoginView.showAlert("Please Enter Valid Password");
                     adminLoginView.reLogin();

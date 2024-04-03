@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    private static User user;
+    public static User getInstance(){
+        if (user == null){
+            user = new User();
+        }
+        return user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
     private static long id = 0;
     private long userId;
     private String userName;

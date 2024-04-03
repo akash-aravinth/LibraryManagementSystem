@@ -2,6 +2,7 @@ package com.akasharavinth.library.home;
 
 import com.akasharavinth.library.LibraryManagement;
 import com.akasharavinth.library.datalayer.Database;
+import com.akasharavinth.library.login.AdminLoginView;
 import com.akasharavinth.library.managebooks.ManageBookView;
 import com.akasharavinth.library.manageuser.ManageUserView;
 
@@ -19,11 +20,10 @@ public class HomeView {
         ManageUserView manageUserView = new ManageUserView();
         System.out.println("1 --> Admin Login\n2 --> User Login\n3 --> SignUp\n4 --> GoBack");
         int choice = scanner.nextInt();
-        ManageBookView manageBookView = new ManageBookView();
         switch (choice){
             case 1 : {
-                manageUserView.getAddUser();
-                System.out.println("Admin Login");
+                AdminLoginView adminLoginView = new AdminLoginView();
+                adminLoginView.init();
                 break;
             }
             case 2 : {

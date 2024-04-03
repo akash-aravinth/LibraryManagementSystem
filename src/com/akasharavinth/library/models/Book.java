@@ -59,4 +59,7 @@ public class Book {
     public void setNoOfBooks(int noOfBooks) {
         this.noOfBooks = noOfBooks;
     }
+    public void decreaseBook(){
+        noOfBooks-=1;
+    }
 }
